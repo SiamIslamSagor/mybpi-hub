@@ -2,17 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./layout/Root";
+import Home from "./pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1 className="text-3xl text-center ">
-          Hello world! <strong>bpi alumnae</strong>
-        </h1>
-      </div>
-    ),
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+    ],
   },
 ]);
 
