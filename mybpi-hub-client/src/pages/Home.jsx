@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { AuroraBackground } from "../ui/components/ui/aurora-background";
-import { TypewriterEffectSmooth } from "../ui/components/ui/typewriter-effect";
+import { Highlight } from "../ui/components/ui/hero-highlight";
 
 const Home = () => {
   return (
@@ -14,14 +14,39 @@ const Home = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4 w-full"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 w-full container max-w-7xl"
         >
           <div className="flex flex-col items-center justify-center h-[20rem]">
-            <p className="text-neutral-600 dark:text-neutral-200">
-              The road to freedom starts from here
-            </p>
-            <TypewriterEffectSmooth words={words} />
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
+            <div className="">
+              <motion.h1
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: [20, -5, 0],
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.4, 0.0, 0.2, 1],
+                }}
+                className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white  lg:max-xl:leading-relaxed lg:leading-snug text-center mx-auto "
+              >
+                Level Up Your BPI Experience:{" "}
+                <br className="sm:hidden md:block xl:hidden" />
+                <Highlight className="text-black dark:text-white md:max-xl:top-4 ">
+                  Find, Connect, Grow{" "}
+                </Highlight>
+              </motion.h1>
+              <div>
+                <p className="mx-auto text-center md:max-xl:pt-10 my-3 2xsm:my-4 text-sm sm:text-base md:text-lg lg:text-xl">
+                  Build your BPI network! MyBPI Hub connects students, faculty,
+                  and alumni for collaboration and lifelong learning.
+                </p>
+              </div>
+            </div>
+            <div className="md:mt-5 flex flex-col sm:flex-row space-y-4 sm:space-y-0 space-x-0 sm:space-x-4">
               <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
                 Join now
               </button>
@@ -35,24 +60,5 @@ const Home = () => {
     </div>
   );
 };
-
-const words = [
-  {
-    text: "Build",
-  },
-  {
-    text: "awesome",
-  },
-  {
-    text: "apps",
-  },
-  {
-    text: "with",
-  },
-  {
-    text: "Aceternity.",
-    className: "text-blue-500 dark:text-blue-500",
-  },
-];
 
 export default Home;
