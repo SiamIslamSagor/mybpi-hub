@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { AuroraBackground } from "../ui/components/ui/aurora-background";
 import { Highlight } from "../ui/components/ui/hero-highlight";
+import StudentInfoCard from "../ui/shared/StudentInfoCard";
+import { CardBody, CardContainer, CardItem } from "../ui/components/ui/3d-card";
 
 const Home = () => {
   return (
-    <div className="">
+    <div className="darkk">
       <AuroraBackground>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
@@ -40,7 +42,7 @@ const Home = () => {
                 </Highlight>
               </motion.h1>
               <div>
-                <p className="mx-auto text-center md:max-xl:pt-10 my-3 2xsm:my-4 text-sm sm:text-base md:text-lg lg:text-xl">
+                <p className="mx-auto text-center md:max-xl:pt-10 my-3 2xsm:my-4 text-sm sm:text-base md:text-lg lg:text-xl dark:text-slate-200 md:tracking-tight">
                   Build your BPI network! MyBPI Hub connects students, faculty,
                   and alumni for collaboration and lifelong learning.
                 </p>
@@ -57,6 +59,9 @@ const Home = () => {
           </div>
         </motion.div>
       </AuroraBackground>
+      <div>
+        <StudentInfoCard />
+      </div>
     </div>
   );
 };
