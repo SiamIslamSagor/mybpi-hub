@@ -4,9 +4,9 @@ import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 
 const StudentInfoCard = () => {
   return (
-    <div className="w-full min-h-lvh flex items-center justify-center ">
+    <div className="w-full min-h-lvh flex items-center justify-center">
       <CardContainer className="inter-var ">
-        <CardBody className="bg-gray-50 relative group/card shadow2xl  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-neutral-950 dark:border-white/[0.2] border-black/[0.1] min-h-80 w-72  h-auto rounded-3xl p-6 border  ">
+        <CardBody className="bg-gray-50 relative group/card duration-500 hover:shadow-2xl  dark:hover:shadow-2xl dark:bg-neutral-950 dark:border-white/[0.2] border-black/[0.1] min-h-80 w-72  h-auto rounded-3xl p-6 border  ">
           <CardItem
             translateZ="70"
             className="text-xl  rounded-full dark:bg-neutral-800 bg-black font-bold  dark:text-white absolute left-[72px] -top-20 "
@@ -42,9 +42,9 @@ const StudentInfoCard = () => {
             <h4> MD SIAM ISLAM SAGOR</h4>
           </CardItem>
           <CardItem
-            as="p"
+            as="div"
             translateZ="40"
-            className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+            className="text-neutral-700 font-medium text-sm max-w-sm mt-2 dark:text-neutral-300"
           >
             <div className="">
               <h5>Student ID: 2122CMT084</h5>
@@ -58,7 +58,7 @@ const StudentInfoCard = () => {
               translateZ={20}
               href="https://twitter.com/mannupaaji"
               target="__blank"
-              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+              className="px-4 py-2 rounded-xl text-xs  dark:text-white font-semibold"
             >
               Details →
             </CardItem>

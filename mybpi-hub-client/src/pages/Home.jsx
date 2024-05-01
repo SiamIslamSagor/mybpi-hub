@@ -4,10 +4,12 @@ import { Highlight } from "../ui/components/ui/hero-highlight";
 import StudentInfoCard from "../ui/shared/StudentInfoCard";
 import { CardBody, CardContainer, CardItem } from "../ui/components/ui/3d-card";
 
+import "../../src/App.css";
+
 const Home = () => {
   return (
-    <div className="darkk">
-      <AuroraBackground>
+    <div className="darkk ">
+      <AuroraBackground className={"curved_fancy_border"}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,7 +18,7 @@ const Home = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4 w-full container max-w-7xl"
+          className="relative flex flex-col gap-4 items-center justify-center px-4 w-full container max-w-7xl "
         >
           <div className="flex flex-col items-center justify-center h-[20rem]">
             <div className="">
@@ -59,9 +61,9 @@ const Home = () => {
           </div>
         </motion.div>
       </AuroraBackground>
-      <div>
+      <section className="">
         <StudentInfoCard />
-      </div>
+      </section>
     </div>
   );
 };

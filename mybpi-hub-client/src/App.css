@@ -1,0 +1,11 @@
+.curved {
+  position: relative;
+  background: #2c3e50;
+  height: 50vh;
+  border-bottom-left-radius: 50% 25%;
+  border-bottom-right-radius: 50% 25%;
+}
+.curved_fancy_border {
+  border-radius: 0% 0% 50% 50% / 10% 10% 10% 10%;
+  box-shadow: -5px 5px 50px #bebebe, 5px -5px 50px #ffffff;
+}
