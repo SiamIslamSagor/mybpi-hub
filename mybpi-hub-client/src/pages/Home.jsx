@@ -9,7 +9,7 @@ import { RegisterForm } from "../ui/shared/RegisterForm";
 
 const Home = () => {
   return (
-    <div className="dark ">
+    <div className="darkk ">
       <AuroraBackground className={"curved_fancy_border"}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
