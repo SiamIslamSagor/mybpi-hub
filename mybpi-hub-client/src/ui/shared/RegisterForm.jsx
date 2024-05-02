@@ -48,7 +48,7 @@ export function RegisterForm() {
         />
         <CiCircleInfo className="text-3xl dark:text-neutral-400 text-neutral-700" />
       </div>
-      <div className="w-full flex gap-2 my-2">
+      <div className="w-full flex gap-2">
         <Tooltip
           delay={0}
           closeDelay={0}
@@ -146,7 +146,7 @@ export function RegisterForm() {
         yet
       </p>
 
-      <form className="mt-8 mb-4" onSubmit={handleSubmit}>
+      <form className="my-4" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
@@ -157,7 +157,7 @@ export function RegisterForm() {
             <Input id="lastname" placeholder="Reja" type="text" />
           </LabelInputContainer>
         </div>
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="date_of_birth">Date of Birth</Label>
             <Input type="date" id="date" placeholder="date of birth" />
@@ -185,8 +185,32 @@ export function RegisterForm() {
         </div>
 
         <LabelInputContainer className="mb-4">
+          <Label htmlFor="Nationality">Nationality</Label>
+          <Input placeholder="Bangladeshi" type="text" />
+        </LabelInputContainer>
+
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="Present Address">Present Address</Label>
+          <Input
+            placeholder="Sylhet Sadar Upazila, Bangladesh
+"
+            type="text"
+          />
+        </LabelInputContainer>
+
+        {/* <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Permanent Address</Label>
+          <Input placeholder="projectmayhem@fc.com" type="email" />
+        </LabelInputContainer>
+
+        <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input placeholder="projectmayhem@fc.com" type="email" />
+        </LabelInputContainer>
+
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="email">Email Address</Label>
+          <Input placeholder="projectmayhem@fc.com" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
@@ -199,7 +223,7 @@ export function RegisterForm() {
             placeholder="••••••••"
             type="twitterpassword"
           />
-        </LabelInputContainer>
+        </LabelInputContainer> */}
 
         <Button
           onClick={handleStepIncrease}
