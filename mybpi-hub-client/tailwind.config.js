@@ -1,3 +1,5 @@
+import { nextui } from "@nextui-org/react";
+
 const svgToDataUri = require("mini-svg-data-uri");
 const {
   default: flattenColorPalette,
@@ -9,10 +11,14 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
     extend: {
+      boxShadow: {
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
       },
@@ -51,6 +57,7 @@ export default {
   },
   plugins: [
     addVariablesForColors,
+    nextui(),
     function ({ matchUtilities, theme }) {
       matchUtilities(
         {

@@ -5,10 +5,11 @@ import StudentInfoCard from "../ui/shared/StudentInfoCard";
 import { CardBody, CardContainer, CardItem } from "../ui/components/ui/3d-card";
 
 import "../../src/App.css";
+import { RegisterForm } from "../ui/shared/RegisterForm";
 
 const Home = () => {
   return (
-    <div className="darkk ">
+    <div className="dark ">
       <AuroraBackground className={"curved_fancy_border"}>
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
@@ -63,6 +64,9 @@ const Home = () => {
       </AuroraBackground>
       <section className="">
         <StudentInfoCard />
+      </section>
+      <section className="max-sm:px-2 ">
+        <RegisterForm />
       </section>
     </div>
   );

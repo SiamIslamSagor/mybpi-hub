@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { CiLinkedin, CiFacebook } from "react-icons/ci";
+import { PiGithubLogo } from "react-icons/pi";
 
 const StudentInfoCard = () => {
   return (
@@ -24,13 +25,13 @@ const StudentInfoCard = () => {
             <div className="absolute  w-full text-center flex flex-col -bottom-12">
               <div className="flex justify-center gap-2 ">
                 <Link>
-                  <FaFacebook className="text-3xl  hover:opacity-75 duration-300 " />
+                  <CiFacebook className="text-3xl" />
                 </Link>
                 <Link>
-                  <FaLinkedin className="text-3xl  hover:opacity-75 duration-300 " />
+                  <CiLinkedin className="text-3xl" />
                 </Link>
                 <Link>
-                  <FaGithub className="text-3xl  hover:opacity-75 duration-300 " />
+                  <PiGithubLogo className="text-3xl" />
                 </Link>
               </div>
             </div>
@@ -53,21 +54,21 @@ const StudentInfoCard = () => {
               <h5>Roll: 620387</h5>
             </div>
           </CardItem>
-          <div className="flex justify-between items-center mt-10">
-            <CardItem
+          <div className="flex justify-end items-center mt-10">
+            {/* <CardItem
               translateZ={20}
               href="https://twitter.com/mannupaaji"
               target="__blank"
               className="px-4 py-2 rounded-xl text-xs  dark:text-white font-semibold"
             >
               Details →
-            </CardItem>
+            </CardItem> */}
             <CardItem
               translateZ={20}
               as="button"
               className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
             >
-              Sign up
+              Details →{" "}
             </CardItem>
           </div>
         </CardBody>
