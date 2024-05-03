@@ -11,6 +11,7 @@ import { BottomGradient } from "../utils/BottomGradient";
 import { LabelInputContainer } from "../utils/LabelInputContainer";
 import PersonalInfoForm from "../utils/PersonalInfoForm";
 import ContactAndSocialInfoForm from "../utils/ContactAndSocialInfoForm";
+import AcademicBackgroundInfoForm from "../utils/AcademicBackgroundInfoForm";
 
 export function RegisterForm() {
   const [steps, setSteps] = useState([1]);
@@ -220,6 +221,10 @@ export function RegisterForm() {
         />
         <ContactAndSocialInfoForm
           className={steps.length !== 2 ? "hidden" : "block"}
+          handleStepIncrease={handleStepIncrease}
+        />
+        <AcademicBackgroundInfoForm
+          className={steps.length !== 3 ? "hidden" : "block"}
           handleStepIncrease={handleStepIncrease}
         />
       </>

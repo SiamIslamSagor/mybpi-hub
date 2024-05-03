@@ -20,25 +20,24 @@ const AcademicBackgroundInfoForm = ({
   return (
     <div className={cn(className)}>
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-        Enhance Your Network{" "}
+        Enhance Your Profile{" "}
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mb-5 dark:text-neutral-300 tracking-tighter">
-        Share your contact details and social links to connect with fellow BPI
-        members.{" "}
+        Sharing your program or department helps us tailor your experience and
+        connect you with relevant resources.
       </p>
       <form className={cn("my-4", formClassName)} onSubmit={handleSubmit}>
-        <LabelInputContainer className="mb-4 relative">
-          <Label htmlFor="Mobile Number">Mobile Number</Label>
-          <Input placeholder="XXX-NNN-NNNN" type="number" className={"pl-12"} />
-          <span className="absolute bottom-[12px] left-2 dark:text-white text-sm">
-            +880
-          </span>
+        <LabelInputContainer className="mb-4 ">
+          <Label htmlFor="Previous School / Collage Name">
+            Previous School / Collage Name
+          </Label>
+          <Input placeholder="Mirzapur High School, Manda" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Alternative Phone Number">
-            Alternative Phone Number (optional)
+          <Label htmlFor="Examination Passed Year">
+            Examination Passed Year
           </Label>
-          <Input placeholder="+880-XXX-NNN-NNNN" type="number" />
+          <Input placeholder="2021" type="number" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="Email Address">Email Address</Label>
