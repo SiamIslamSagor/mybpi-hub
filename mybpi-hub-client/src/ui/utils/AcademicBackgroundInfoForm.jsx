@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Button } from "@nextui-org/react";
+import { Button, Select, SelectItem } from "@nextui-org/react";
 import { BottomGradient } from "./BottomGradient";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { LabelInputContainer } from "./LabelInputContainer";
 import { cn } from "../../utils/cn";
+import CustomSelect from "../components/ui/custom-select";
 
 const AcademicBackgroundInfoForm = ({
   handleStepIncrease,
@@ -28,40 +29,30 @@ const AcademicBackgroundInfoForm = ({
       </p>
       <form className={cn("my-4", formClassName)} onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4 ">
-          <Label htmlFor="Previous School / Collage Name">
-            Previous School / Collage Name
+          <Label htmlFor="Previous School/Collage Name">
+            Previous School/Collage Name
           </Label>
           <Input placeholder="Mirzapur High School, Manda" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Examination Passed Year">
-            Examination Passed Year
-          </Label>
+          <Label htmlFor="Board of Education">Board of Education</Label>
+          <CustomSelect />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="Examination Passed">Examination Passed</Label>
+          <Input placeholder="SSC, HSC" type="text" />
+        </LabelInputContainer>
+        <LabelInputContainer className="mb-4">
+          <Label htmlFor="Year of Passing">Year of Passing</Label>
           <Input placeholder="2021" type="number" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Email Address">Email Address</Label>
-          <Input placeholder="selimmahmud72@gmail.com" type="email" />
+          <Label htmlFor="Roll Number">Roll Number</Label>
+          <Input placeholder="623829" type="number" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Facebook Id Link">Facebook Id Link</Label>
-          <Input
-            placeholder="https://www.facebook.com/pro.gamar.908"
-            type="url"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="Linkedin Id Link">Linkedin Id Link (optional)</Label>
-          <Input
-            placeholder="https://www.linkedin.com/in/mdsiamofficial"
-            type="url"
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="Github Account  Link">
-            Github Account Link (optional)
-          </Label>
-          <Input placeholder="https://github.com/SiamIslamSagor" type="url" />
+          <Label htmlFor="GPA/Percentage">GPA/Percentage</Label>
+          <Input placeholder="4.13" type="number" />
         </LabelInputContainer>
 
         <Button

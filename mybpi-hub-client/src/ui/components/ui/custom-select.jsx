@@ -1,12 +1,25 @@
 /* eslint-disable react/prop-types */
-import { Radio, cn } from "@nextui-org/react";
-import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
+import { Select, SelectItem } from "@nextui-org/react";
+import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useState } from "react";
+import { cn } from "../../../utils/cn";
 
-export const CustomRadio = props => {
-  const { children, ...otherProps } = props;
+const CustomSelect = props => {
+  const { ...otherProps } = props;
   const radius = 100; // change this to increase the radius of the hover effect
   const [visible, setVisible] = useState(false);
+
+  const allBoardsOfEducation = [
+    "Dhaka",
+    "Rajshahi",
+    "Comilla",
+    "Jessore",
+    "Chittagong",
+    "Barisal",
+    "Sylhet",
+    "Dinajpur",
+    "Madrasah",
+  ];
 
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
@@ -31,28 +44,35 @@ export const CustomRadio = props => {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
-      className="p-[2px] rounded-lg transition duration-300 group/input w-1/2"
+      className="p-[2px] rounded-lg transition duration-300 group/input "
     >
-      <Radio
+      <Select
+        radius="sm"
+        placeholder="Select Education Board"
         {...otherProps}
         classNames={
-          (`flex h-10 w-full border-none bg-gray-50 dark:bg-zinc-800 text-black dark:text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
-        file:text-sm file:font-medium placeholder:text-neutral-400 dark:placeholder-text-neutral-600 
-        focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600
-         disabled:cursor-not-allowed disabled:opacity-50
-         dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
-         group-hover/input:shadow-none transition duration-400
+          (`!flex !h-10 !w-full !rounded-none !border-none !bg-gray-50 !dark:bg-zinc-800 !text-black !dark:text-white !shadow-input !rounded-md !px-3 !py-2 !text-sm  !file:border-0 !file:bg-transparent 
+        !file:text-sm !file:font-medium !placeholder:text-neutral-400 !dark:placeholder-text-neutral-600 
+        !focus-visible:outline-none !focus-visible:ring-[2px]  !focus-visible:ring-neutral-400 !dark:focus-visible:ring-neutral-600
+         !disabled:cursor-not-allowed !disabled:opacity-50
+         !dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]
+         !group-hover/input:shadow-none !transition !duration-400
          `,
+          "",
           {
             base: cn(
               "inline-flex m-0 bg-gray-50 dark:bg-zinc-800 placeholder:text-neutral-400 dark:placeholder-text-neutral-600 focus-visible:outline-none focus-visible:ring-[2px]  focus-visible:ring-neutral-400 dark:focus-visible:ring-neutral-600  disabled:cursor-not-allowed disabled:opacity-50 dark:shadow-[0px_0px_1px_1px_var(--neutral-700)]  group-hover/input:shadow-none transition duration-400 text-black dark:text-white shadow-input  justify-between",
-              "flex-row-reverse max-w-full cursor-pointer rounded-lg gap-4 p-2 "
+              "flex-row-reverse max-w-full cursor-pointer rounded-lg gap-4 "
             ),
           })
         }
       >
-        {children}
-      </Radio>
+        {allBoardsOfEducation.map(board => (
+          <SelectItem key={board}>{board}</SelectItem>
+        ))}
+      </Select>
     </motion.div>
   );
 };
+
+export default CustomSelect;
