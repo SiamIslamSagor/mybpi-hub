@@ -10,6 +10,7 @@ import { CustomRadio } from "../components/ui/custom-radio";
 import { BottomGradient } from "../utils/BottomGradient";
 import { LabelInputContainer } from "../utils/LabelInputContainer";
 import PersonalInfoForm from "../utils/PersonalInfoForm";
+import ContactAndSocialInfoForm from "../utils/ContactAndSocialInfoForm";
 
 export function RegisterForm() {
   const [steps, setSteps] = useState([1]);
@@ -39,11 +40,14 @@ export function RegisterForm() {
   };
 
   return (
-    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-xl border bg-white dark:bg-black mb-20">
+    <div className="max-w-md w-full mx-auto rounded-2xl p-4 md:p-8 shadow-xl border bg-white dark:bg-black">
       <div className="flex items-center justify-between">
         <IoIosArrowRoundBack
           onClick={handleStepDecrease}
-          className="text-3xl dark:text-neutral-400 text-neutral-700 cursor-pointer"
+          className={cn(
+            "text-3xl dark:text-neutral-400 text-neutral-700 cursor-pointer",
+            steps.length === 1 && "hidden"
+          )}
         />
         <CiCircleInfo className="text-3xl dark:text-neutral-400 text-neutral-700" />
       </div>
@@ -137,12 +141,12 @@ export function RegisterForm() {
           </div>
         </Tooltip>
       </div>
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+      {/* <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Welcome to MyBPI HUB
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mb-5 dark:text-neutral-300 tracking-tighter">
         Sign up to collaborate with colleagues and connect with BPI students.
-      </p>
+      </p> */}
 
       {/* <form className="my-4" onSubmit={handleSubmit}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
@@ -211,7 +215,11 @@ export function RegisterForm() {
           <div>this is second part of registration</div>
         )} */}
         <PersonalInfoForm
-          className={steps.length > 1 ? "hidden" : "block"}
+          className={steps.length !== 1 ? "hidden" : "block"}
+          handleStepIncrease={handleStepIncrease}
+        />
+        <ContactAndSocialInfoForm
+          className={steps.length !== 2 ? "hidden" : "block"}
           handleStepIncrease={handleStepIncrease}
         />
       </>

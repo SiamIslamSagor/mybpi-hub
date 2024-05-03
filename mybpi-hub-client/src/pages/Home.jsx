@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { AuroraBackground } from "../ui/components/ui/aurora-background";
 import { Highlight } from "../ui/components/ui/hero-highlight";
 import StudentInfoCard from "../ui/shared/StudentInfoCard";
-import { CardBody, CardContainer, CardItem } from "../ui/components/ui/3d-card";
 
 import "../../src/App.css";
-import { RegisterForm } from "../ui/shared/RegisterForm";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -52,9 +51,11 @@ const Home = () => {
               </div>
             </div>
             <div className="md:mt-5 flex flex-col sm:flex-row space-y-4 sm:space-y-0 space-x-0 sm:space-x-4">
-              <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-                Join now
-              </button>
+              <Link to={"/registration"}>
+                <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
+                  Join now
+                </button>
+              </Link>
               <button className="w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
                 Find Identity
               </button>
@@ -65,9 +66,9 @@ const Home = () => {
       <section className="">
         <StudentInfoCard />
       </section>
-      <section className="max-sm:px-2 ">
+      {/* <section className="max-sm:px-2 border">
         <RegisterForm />
-      </section>
+      </section> */}
     </div>
   );
 };

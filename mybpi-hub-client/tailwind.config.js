@@ -56,8 +56,8 @@ export default {
     },
   },
   plugins: [
-    addVariablesForColors,
     nextui(),
+    addVariablesForColors,
     function ({ matchUtilities, theme }) {
       matchUtilities(
         {
