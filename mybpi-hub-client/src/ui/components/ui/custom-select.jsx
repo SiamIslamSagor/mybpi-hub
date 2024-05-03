@@ -4,22 +4,10 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useState } from "react";
 import { cn } from "../../../utils/cn";
 
-const CustomSelect = props => {
-  const { ...otherProps } = props;
+const CustomSelect = ({ items, placeholder }) => {
+  console.log(items);
   const radius = 100; // change this to increase the radius of the hover effect
   const [visible, setVisible] = useState(false);
-
-  const allBoardsOfEducation = [
-    "Dhaka",
-    "Rajshahi",
-    "Comilla",
-    "Jessore",
-    "Chittagong",
-    "Barisal",
-    "Sylhet",
-    "Dinajpur",
-    "Madrasah",
-  ];
 
   let mouseX = useMotionValue(0);
   let mouseY = useMotionValue(0);
@@ -48,8 +36,7 @@ const CustomSelect = props => {
     >
       <Select
         radius="sm"
-        placeholder="Select Education Board"
-        {...otherProps}
+        placeholder={placeholder}
         classNames={
           (`!flex !h-10 !w-full !rounded-none !border-none !bg-gray-50 !dark:bg-zinc-800 !text-black !dark:text-white !shadow-input !rounded-md !px-3 !py-2 !text-sm  !file:border-0 !file:bg-transparent 
         !file:text-sm !file:font-medium !placeholder:text-neutral-400 !dark:placeholder-text-neutral-600 
@@ -67,8 +54,8 @@ const CustomSelect = props => {
           })
         }
       >
-        {allBoardsOfEducation.map(board => (
-          <SelectItem key={board}>{board}</SelectItem>
+        {items?.map(item => (
+          <SelectItem key={item}>{item}</SelectItem>
         ))}
       </Select>
     </motion.div>

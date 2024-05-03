@@ -7,21 +7,22 @@ import { LabelInputContainer } from "./LabelInputContainer";
 import { cn } from "../../utils/cn";
 import CustomSelect from "../components/ui/custom-select";
 
-const AcademicBackgroundInfoForm = ({
+const EnrollmentInfoForm = ({
   handleStepIncrease,
   formClassName,
   className,
 }) => {
-  const allBoardsOfEducation = [
-    "Dhaka",
-    "Rajshahi",
-    "Comilla",
-    "Jessore",
-    "Chittagong",
-    "Barisal",
-    "Sylhet",
-    "Dinajpur",
-    "Madrasah",
+  const allDepartments = [
+    "Architecture",
+    "Automobile",
+    "Computer Science & Technology",
+    "Civil",
+    "Electronics",
+    "Electrical",
+    "Mechanical",
+    "Surveying",
+    "Apparel Manufacturing",
+    "Textile engineering",
   ];
 
   const handleSubmit = e => {
@@ -33,41 +34,38 @@ const AcademicBackgroundInfoForm = ({
   return (
     <div className={cn(className)}>
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-        Enhance Your Profile{" "}
+        Verify Your BPI Affiliation{" "}
       </h2>
       <p className="text-neutral-600 text-sm max-w-sm mb-5 dark:text-neutral-300 tracking-tighter">
-        Sharing your program or department helps us tailor your experience and
-        connect you with relevant resources.
+        Provide additional details to help us confirm your status as a BPI
+        student, faculty member, or alumnus/alumna{" "}
       </p>
       <form className={cn("my-4", formClassName)} onSubmit={handleSubmit}>
-        <LabelInputContainer className="mb-4 ">
-          <Label htmlFor="Previous School/Collage Name">
-            Previous School/Collage Name
-          </Label>
-          <Input placeholder="Mirzapur High School, Manda" type="text" />
-        </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Board of Education">Board of Education</Label>
+          <Label htmlFor="Department of Study">Department of Study</Label>
           <CustomSelect
-            placeholder={"Select Education Board"}
-            items={allBoardsOfEducation}
+            items={allDepartments}
+            placeholder={"Select Your Department"}
           />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Examination Passed">Examination Passed</Label>
-          <Input placeholder="SSC, HSC" type="text" />
+          <Label htmlFor="Enrollment Year">Enrollment Year</Label>
+          <Input placeholder="2022" type="number" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Year of Passing">Year of Passing</Label>
-          <Input placeholder="2021" type="number" />
+          <Label htmlFor="Student Id">Student Id</Label>
+          <Input placeholder="2122CMT084" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Roll Number">Roll Number</Label>
-          <Input placeholder="623829" type="number" />
+          <Label htmlFor="Current Semester">Current Semester</Label>
+          <Input placeholder="7th" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="GPA/Percentage">GPA/Percentage</Label>
-          <Input placeholder="4.13" type="number" />
+          <Label htmlFor="Diploma Completed">Diploma Completed</Label>
+          <CustomSelect
+            items={["Completed", "In Progress"]}
+            placeholder={"Diploma Status"}
+          />{" "}
         </LabelInputContainer>
 
         <Button
@@ -82,4 +80,4 @@ const AcademicBackgroundInfoForm = ({
   );
 };
 
-export default AcademicBackgroundInfoForm;
+export default EnrollmentInfoForm;

@@ -12,6 +12,7 @@ import { LabelInputContainer } from "../utils/LabelInputContainer";
 import PersonalInfoForm from "../utils/PersonalInfoForm";
 import ContactAndSocialInfoForm from "../utils/ContactAndSocialInfoForm";
 import AcademicBackgroundInfoForm from "../utils/AcademicBackgroundInfoForm";
+import EnrollmentInfoForm from "../utils/EnrollmentInfoForm";
 
 export function RegisterForm() {
   const [steps, setSteps] = useState([1]);
@@ -225,6 +226,10 @@ export function RegisterForm() {
         />
         <AcademicBackgroundInfoForm
           className={steps.length !== 3 ? "hidden" : "block"}
+          handleStepIncrease={handleStepIncrease}
+        />
+        <EnrollmentInfoForm
+          className={steps.length !== 4 ? "hidden" : "block"}
           handleStepIncrease={handleStepIncrease}
         />
       </>
