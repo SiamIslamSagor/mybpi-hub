@@ -47,8 +47,9 @@ const AcademicBackgroundInfoForm = ({
           <Input placeholder="Mirzapur High School, Manda" type="text" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="Board of Education">Board of Education</Label>
+          <Label htmlFor="Board_of_Education">Board of Education</Label>
           <CustomSelect
+            id={"Board_of_Education"}
             placeholder={"Select Education Board"}
             items={allBoardsOfEducation}
           />

@@ -25,7 +25,7 @@ const PersonalInfoForm = ({ handleStepIncrease, formClassName, className }) => {
       <form className={cn("my-4", formClassName)} onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="Full Name">Full Name</Label>
-          <Input placeholder="Selim Mahmud Reja" type="text" />
+          <Input id="Full Name" placeholder="Selim Mahmud Reja" type="text" />
         </LabelInputContainer>
         <div className="flex flex-row space-y-0 space-x-2 mb-4">
           <LabelInputContainer>
@@ -59,7 +59,7 @@ const PersonalInfoForm = ({ handleStepIncrease, formClassName, className }) => {
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="NID">NID (optional)</Label>
-            <Input id="religion" placeholder="10 to 15 numbers" type="text" />
+            <Input id="NID" placeholder="10 to 15 numbers" type="text" />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">

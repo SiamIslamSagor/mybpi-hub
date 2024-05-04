@@ -4,8 +4,7 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { useState } from "react";
 import { cn } from "../../../utils/cn";
 
-const CustomSelect = ({ items, placeholder }) => {
-  console.log(items);
+const CustomSelect = ({ items, placeholder, id }) => {
   const radius = 100; // change this to increase the radius of the hover effect
   const [visible, setVisible] = useState(false);
 
@@ -35,6 +34,8 @@ const CustomSelect = ({ items, placeholder }) => {
       className="p-[2px] rounded-lg transition duration-300 group/input "
     >
       <Select
+        id={id}
+        aria-label={placeholder}
         radius="sm"
         placeholder={placeholder}
         classNames={

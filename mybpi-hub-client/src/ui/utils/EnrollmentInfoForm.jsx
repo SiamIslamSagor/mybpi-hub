@@ -44,6 +44,7 @@ const EnrollmentInfoForm = ({
         <LabelInputContainer className="mb-4">
           <Label htmlFor="Department of Study">Department of Study</Label>
           <CustomSelect
+            id={"Department of Studyo"}
             items={allDepartments}
             placeholder={"Select Your Department"}
           />
