@@ -11,60 +11,28 @@ import {
   LoadCanvasTemplateNoReload,
   validateCaptcha,
 } from "react-simple-captcha";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FiEdit3 } from "react-icons/fi";
+import CaptchaValidation from "./CaptchaValidation";
 
 const LoginInfoForm = ({ handleStepIncrease, formClassName, className }) => {
-  const [userInput, setUserInput] = useState("");
-  const [isVerifyBtnDisabled, setIsVerifyBtnDisabled] = useState(true); // Initially disabled
-  const inputRef = useRef(null);
-  const [isValidated, setIsValidated] = useState(false); // Initially not validated
+  // hooks
+  const { register, handleSubmit } = useForm();
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  const [isVerifyBtnDisabled, setIsVerifyBtnDisabled] = useState(true);
+
+  const onSubmit = data => {
+    // handleStepIncrease();
     console.log("Form submitted");
-    handleStepIncrease();
+    console.log(data);
   };
 
-  const handleUserInput = e => {
-    setUserInput(e.target.value);
-  };
-
-  const handleValidateCaptcha = () => {
-    if (validateCaptcha(userInput) === true) {
-      console.log("Captcha Matched");
-      setIsVerifyBtnDisabled(false); // Enable submission if valid
-      setIsValidated(true); // Set validated state
-    } else {
-      console.log("Captcha Does Not Match");
-      alert("Please enter the correct CAPTCHA code.");
-      setIsValidated(false); // Reset validated state on failure
-    }
-  };
-
-  const handleUserFinishedTyping = () => {
-    handleValidateCaptcha(); // Call validation on completion
-  };
-
-  // Load the CAPTCHA engine initially
-  useEffect(() => {
-    loadCaptchaEnginge(6, "gray", "blue");
-  }, []);
-
-  useEffect(() => {
-    const handleKeyUp = event => {
-      if (event.key === "Enter") {
-        // Replace with your desired completion key
-        handleUserFinishedTyping();
-      }
-    };
-
-    inputRef.current.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      inputRef.current.removeEventListener("keyup", handleKeyUp);
-    };
-  }, [handleUserFinishedTyping]);
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   console.log("Form submitted");
+  //   handleStepIncrease();
+  // };
 
   return (
     <div className={cn(className)}>
@@ -75,24 +43,16 @@ const LoginInfoForm = ({ handleStepIncrease, formClassName, className }) => {
         Create your login credentials to access all the app&apos;s features and
         benefits.
       </p>
-      <form className={cn("my-4", formClassName)} onSubmit={handleSubmit}>
-        {/* <label
-          className="text-sm bg-stone-200 hover:bg-stone-300"
-          htmlFor="fileUpload"
-        >
-          <input
-            className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-foreground file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-            id="picture"
-            name="picture"
-            type="file"
-          />
-        </label> */}
+      <form
+        className={cn("my-4", formClassName)}
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className=" mb-4 flex items-center justify-center">
           <div className="relative overflow-hidden">
             <img
               src="https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg"
               alt="user image"
-              className="size-24 rounded-full"
+              className="size-28 rounded-full cursor-pointer"
             />
             <span className="absolute bottom-0 right-0 flex items-center gap-1 shadow-input rounded-md bg-gray-100 dark:bg-neutral-600 dark:text-white scale-80 p-1">
               {" "}
@@ -100,10 +60,9 @@ const LoginInfoForm = ({ handleStepIncrease, formClassName, className }) => {
               <span className="text-sm">Edit</span>
             </span>
             <input
-              className="border absolute top-0  bg-red-300 p-2 opacity-0 size-24"
+              className="border cursor-pointer absolute top-0 file:cursor-pointer bg-red-300 p-2 opacity-0 size-28"
               type="file"
-              name="user_pic"
-              id=""
+              {...register("user_pic", { required: true })}
             />
           </div>
         </div>
@@ -119,28 +78,11 @@ const LoginInfoForm = ({ handleStepIncrease, formClassName, className }) => {
           <Label htmlFor="Confirm Password">Confirm Password</Label>
           <Input placeholder="Enter your password again" type="password" />
         </LabelInputContainer>
-        <LabelInputContainer
-          className={`mb-4 ${isVerifyBtnDisabled ? "" : "hidden"}`}
-        >
-          <div className="*:!flex *:flex-col">
-            <LoadCanvasTemplate reloadText="Reload My Captcha" />
-          </div>
-        </LabelInputContainer>
-        <LabelInputContainer
-          className={`mb-4 ${isVerifyBtnDisabled ? "" : "hidden"}`}
-        >
-          <Label htmlFor="Match Captcha">Match Captcha</Label>
-          <Input
-            placeholder="type captcha character here"
-            type="text"
-            value={userInput}
-            onChange={handleUserInput}
-            onBlur={() => {
-              handleUserFinishedTyping();
-            }}
-            ref={inputRef}
-          />
-        </LabelInputContainer>
+
+        <CaptchaValidation
+          isVerifyBtnDisabled={isVerifyBtnDisabled}
+          setIsVerifyBtnDisabled={setIsVerifyBtnDisabled}
+        />
 
         <Button
           disabled={isVerifyBtnDisabled}
