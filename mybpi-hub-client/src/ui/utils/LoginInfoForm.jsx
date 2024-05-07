@@ -55,7 +55,7 @@ const LoginInfoForm = ({ handleStepIncrease, formClassName, className }) => {
               className="size-28 rounded-full cursor-pointer"
             />
             <span className="absolute bottom-0 right-0 flex items-center gap-1 shadow-input rounded-md bg-gray-100 dark:bg-neutral-600 dark:text-white scale-80 p-1">
-              {" "}
+              {"commit "}
               <FiEdit3 />
               <span className="text-sm">Edit</span>
             </span>
