@@ -5,6 +5,7 @@ import StudentInfoCard from "../ui/shared/StudentInfoCard";
 
 import "../../src/App.css";
 import { Link } from "react-router-dom";
+import students from "../assets/students.json";
 
 const Home = () => {
   return (

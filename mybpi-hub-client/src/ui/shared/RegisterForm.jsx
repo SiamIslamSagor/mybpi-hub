@@ -1,19 +1,14 @@
 /* eslint-disable react/prop-types */
-import { Input } from "../components/ui/input";
-import { cn } from "../../utils/cn";
-import { Button, DatePicker, RadioGroup, Tooltip } from "@nextui-org/react";
+import { Tooltip } from "@nextui-org/react";
+import { useState } from "react";
 import { CiCircleInfo } from "react-icons/ci";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { Label } from "../components/ui/label";
-import { useState } from "react";
-import { CustomRadio } from "../components/ui/custom-radio";
-import { BottomGradient } from "../utils/BottomGradient";
-import { LabelInputContainer } from "../utils/LabelInputContainer";
-import PersonalInfoForm from "../utils/PersonalInfoForm";
-import ContactAndSocialInfoForm from "../utils/ContactAndSocialInfoForm";
+import { cn } from "../../utils/cn";
 import AcademicBackgroundInfoForm from "../utils/AcademicBackgroundInfoForm";
+import ContactAndSocialInfoForm from "../utils/ContactAndSocialInfoForm";
 import EnrollmentInfoForm from "../utils/EnrollmentInfoForm";
 import LoginInfoForm from "../utils/LoginInfoForm";
+import PersonalInfoForm from "../utils/PersonalInfoForm";
 
 export function RegisterForm() {
   const [steps, setSteps] = useState([1]);
